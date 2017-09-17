@@ -1,0 +1,36 @@
+<br>
+<div class="container">
+
+  <div class="card">
+    <div class="card-content pink darken-1">
+      <div class="card-title white-text">
+        <h4><i class="fa fa-fw fa-cubes" aria-hidden="true"></i> Coding Challenges</h4>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col m3 s12" *ngIf="challenges">
+          <ul class="collection with-header">
+            <li class="collection-header blue-grey darken-1 white-text">
+              <h5><i class="fa fa-fw fa-cubes" aria-hidden="true"></i> Challenges</h5>
+            </li>
+            <li *ngFor="let challenge of challenges">
+              <a class="collection-item blue-grey-text" style="cursor:pointer" (click)="showProblems(challenge)"><i class="fa fa-fw fa-cubes" aria-hidden="true"></i> {{challenge}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col m9 s12" *ngIf="currentProblems">
+          <ul class="collection with-header">
+            <li class="collection-header blue-grey darken-1 white-text">
+              <h5><i class="fa fa-fw fa-cube" aria-hidden="true"></i> Problems</h5>
+            </li>
+            <li *ngFor="let problem of currentProblems">
+              <a class="collection-item blue-grey-text" style="cursor:pointer" [routerLink]="['/coding-tracks/problems/', 
+                  problem.$key]"><i class="fa fa-fw fa-cube" aria-hidden="true"></i>  {{problem.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

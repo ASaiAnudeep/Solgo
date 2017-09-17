@@ -1,0 +1,12 @@
+using System; 
+using System.Numerics;
+
+class MyClass {
+    static void Main(string[] args) {
+        var line1 = System.Console.ReadLine().Trim();
+        var str = System.Console.ReadLine().Trim();
+        var N = Int32.Parse(line1);
+        Console.WriteLine(N * 2);
+        Console.WriteLine(str + str);
+    }
+}

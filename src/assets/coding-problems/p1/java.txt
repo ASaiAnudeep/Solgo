@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+class TestClass {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        int N = s.nextInt(); 
+        String str = s.next(); 
+        System.out.println(N*2);
+        System.out.println(str + str);
+    }
+}

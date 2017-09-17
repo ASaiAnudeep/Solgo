@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100% !important;
+}
+
+body {
+    display: flex;
+    min-height: 100vh !important;
+    flex-direction: column;
+}
+
+main {
+    min-height: 80vh !important;
+    flex: 1 0 auto;
+}
+      
+
+pre {
+    border-style: none !important;
+}
+
+.tab-indent { 
+    margin-left: 23px !important; 
+}
+
+.font-image {
+    height: 1em;
+    width: auto;
+}
