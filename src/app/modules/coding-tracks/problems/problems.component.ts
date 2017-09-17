@@ -35,7 +35,7 @@ export class ProblemsComponent implements OnInit, AfterViewChecked {
       this.fire.getProblem(this.currentProblemID).then(prob => this.currentProblem = prob);
       this.fire.getProblemDetails(this.currentProblemID).then(probDetail => this.currentProblem.problemDetail = probDetail);
       this.web.getCode(this.currentProblemID, 'c').then(code => this.codeC = code);
-      this.web.getCode(this.currentProblemID, 'cpp').then(code => this.codeCPP = code);
+      this.web.getCode(this.currentProblemID, 'cpp').then(code => this.codeCPP = code).catch(code => this.codeCPP = code);
       this.web.getCode(this.currentProblemID, 'java').then(code => this.codeJava = code);
       this.web.getCode(this.currentProblemID, 'csharp').then(code => this.codeCSharp = code);
       this.web.getCode(this.currentProblemID, 'python').then(code => this.codePython = code);
@@ -43,12 +43,11 @@ export class ProblemsComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    if(this.codeUpdated < 100) {
+    if(this.codeUpdated < 1000) {
       PR.prettyPrint();
       app.initializeTabs();   
       this.codeUpdated = this.codeUpdated + 1;
     }
-       
    } 
 
 }

@@ -8,15 +8,11 @@ import { CodingTracksComponent } from './coding-tracks.component';
 import { ChallengesComponent } from './challenges/challenges.component';
 import { ProblemsComponent } from './problems/problems.component';
 
-const CodingTracksRoutes: Routes = [
-  { path: 'challenges', component: ChallengesComponent }
-];
-
 @NgModule({
   imports: [
     CommonModule,
     HttpModule,
-    RouterModule.forChild(CodingTracksRoutes)
+    RouterModule
   ],
   declarations: [
     CodingTracksComponent,

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class TestClass {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        double pos = 0, neg = 0, zer = 0;
+        for(int arr_i=0; arr_i < n; arr_i++){
+           int curr = in.nextInt();
+           if (curr > 0)
+               pos++;
+           else if (curr < 0)
+               neg++;
+           else
+               zer++;
+        }
+        in.close();
+        System.out.println((pos/n) * 100);
+        System.out.println((zer/n) * 100);
+        System.out.println((neg/n) * 100);
+    }
+}

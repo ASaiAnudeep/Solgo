@@ -16,6 +16,8 @@ export interface ProblemDetail {
     description: string;
     input: string;
     output: string;
+    sampleInput: string;
+    sampleOutput: string;
 }
 
 export interface Solution {

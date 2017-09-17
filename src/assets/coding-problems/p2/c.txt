@@ -1,13 +1,22 @@
 #include <stdio.h>
 
-int main()
-{
-    int n;
-    char s[15];
+int main(){
+    int n; 
+    float positive = 0, negative = 0, zero = 0;
     scanf("%d",&n);
-    scanf("%s",&s);
-    
-    printf("%d\n",n*2);
-    printf("%s\n",s);
+    for(int i = 0; i < n; i++){
+        int temp;
+        scanf("%d",&temp);
+        if(temp == 0) { 
+            zero++;
+        } else if(temp > 0) {
+            positive++;
+        } else {
+            negative++; 
+        }
+    }
+    printf("%f\n", (positive / n) * 100);
+    printf("%f\n", (zero / n) * 100);
+    printf("%f", (negative / n) * 100);
     return 0;
 }
