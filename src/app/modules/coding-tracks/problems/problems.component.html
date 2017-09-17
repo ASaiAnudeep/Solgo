@@ -11,20 +11,22 @@
         <p class="tab-indent" [innerHTML]="currentProblem.question"></p>
         <br />
       </div>
-      <div *ngIf="(currentProblem)?.description">
-        <b><i class="fa fa-fw fa-info-circle light-blue-text" aria-hidden="true"></i> Description</b>
-        <p class="tab-indent" [innerHTML]="currentProblem.description"></p>
-        <br />
-      </div>
-      <div *ngIf="(currentProblem)?.input">
-        <b><i class="fa fa-fw fa-keyboard-o blue-text" aria-hidden="true"></i> Input</b>
-        <p class="tab-indent" [innerHTML]="currentProblem.input"> </p>
-        <br />
-      </div>
-      <div *ngIf="(currentProblem)?.output">
-        <b><i class="fa fa-fw fa-terminal green-text" aria-hidden="true"></i> Output</b>
-        <p class="tab-indent" [innerHTML]="currentProblem.output"></p>
-        <br />
+      <div *ngIf="currentProblem?.problemDetail">
+        <div *ngIf="currentProblem.problemDetail?.description">
+          <b><i class="fa fa-fw fa-info-circle light-blue-text" aria-hidden="true"></i> Description</b>
+          <p class="tab-indent" [innerHTML]="currentProblem.problemDetail.description"></p>
+          <br />
+        </div>
+        <div *ngIf="currentProblem.problemDetail?.input">
+          <b><i class="fa fa-fw fa-keyboard-o blue-text" aria-hidden="true"></i> Input</b>
+          <p class="tab-indent" [innerHTML]="currentProblem.problemDetail.input"> </p>
+          <br />
+        </div>
+        <div *ngIf="currentProblem.problemDetail?.output">
+          <b><i class="fa fa-fw fa-terminal green-text" aria-hidden="true"></i> Output</b>
+          <p class="tab-indent" [innerHTML]="currentProblem.problemDetail.output"></p>
+          <br />
+        </div>
       </div>
     </div>
     <div class="card-tabs">
@@ -37,7 +39,7 @@
       </ul>
     </div>
     <div class="card-content grey lighten-4">
-      <div *ngIf="codeC" id="c" >
+      <div *ngIf="codeC" id="c">
         <pre class="prettyprint lang-c" [innerText]="codeC"></pre>
       </div>
       <div *ngIf="codeCPP" id="cpp">
@@ -53,9 +55,5 @@
         <pre class="prettyprint lang-py" [innerText]="codePython"></pre>
       </div>
     </div>
-  </div>
-
-  <div class="card" *ngIf="currentCode">
-    <pre class="prettyprint" [innerText]="currentCode"></pre>
   </div>
 </div>

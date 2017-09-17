@@ -9,6 +9,10 @@ export interface Problem {
     id: number;
     question: string;
     title: string;
+    problemDetail: ProblemDetail;
+}
+
+export interface ProblemDetail {
     description: string;
     input: string;
     output: string;

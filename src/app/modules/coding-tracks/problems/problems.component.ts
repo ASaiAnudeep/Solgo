@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { FireService } from '../../../services/firebase.service';
 import { WebService } from '../../../services/web.service';
-import { Problem } from '../../../models/problem.interface';
+import { Problem, ProblemDetail } from '../../../models/problem.interface';
 
 declare var app;
 declare var PR;
@@ -33,6 +33,7 @@ export class ProblemsComponent implements OnInit, AfterViewChecked {
     this.ar.params.subscribe(res => {
       this.currentProblemID = res['id'];
       this.fire.getProblem(this.currentProblemID).then(prob => this.currentProblem = prob);
+      this.fire.getProblemDetails(this.currentProblemID).then(probDetail => this.currentProblem.problemDetail = probDetail);
       this.web.getCode(this.currentProblemID, 'c').then(code => this.codeC = code);
       this.web.getCode(this.currentProblemID, 'cpp').then(code => this.codeCPP = code);
       this.web.getCode(this.currentProblemID, 'java').then(code => this.codeJava = code);
@@ -43,7 +44,6 @@ export class ProblemsComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     if(this.codeUpdated < 100) {
-      console.log(this.codeUpdated);
       PR.prettyPrint();
       app.initializeTabs();   
       this.codeUpdated = this.codeUpdated + 1;

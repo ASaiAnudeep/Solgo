@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
-import { Problem, CodingTrack, CodingChallenge } from '../models/problem.interface';
+import { Problem, ProblemDetail, CodingTrack, CodingChallenge } from '../models/problem.interface';
 
 @Injectable()
 export class FireService {
@@ -34,6 +34,17 @@ export class FireService {
                     )
                 });
                 return resolve(problems);
+            }
+        );
+    }
+    getProblemDetails(id: string): Promise<ProblemDetail> {
+        return new Promise(
+            resolve => {
+                this.db.object(`/coding-problem-details/${id}`).subscribe(
+                    probDetail => {
+                        return resolve(probDetail);
+                    }
+                );
             }
         );
     }
