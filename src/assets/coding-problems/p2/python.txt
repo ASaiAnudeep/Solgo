@@ -1,0 +1,14 @@
+positive = negative = zero = 0
+n = int(input())
+arr = input().split()
+for a in arr:
+    if int(a) == 0:
+        zero += 1
+    elif int(a) > 0:
+        positive += 1
+    else:
+        negative += 1
+
+print ((positive/n) * 100)
+print ((zero/n) * 100)
+print ((negative/n) * 100)

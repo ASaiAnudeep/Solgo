@@ -24,11 +24,6 @@
               <p class="tab-indent" [innerHTML]="currentProblem.problemDetail.input"> </p>
               <br />
             </div>
-            <div *ngIf="currentProblem.problemDetail?.sampleInput">
-              <b><i class="fa fa-fw fa-terminal teal-text" aria-hidden="true"></i> Sample Input</b>
-              <p class="well light-blue lighten-5" [innerHTML]="currentProblem.problemDetail.sampleInput"></p>
-              <br />
-            </div>
           </div>
           <div class="col m6 s12">
             <div *ngIf="currentProblem.problemDetail?.output">
@@ -36,21 +31,24 @@
               <p class="tab-indent" [innerHTML]="currentProblem.problemDetail.output"></p>
               <br />
             </div>
-            <div *ngIf="currentProblem.problemDetail?.sampleOutput">
-              <b><i class="fa fa-fw fa-terminal teal-text" aria-hidden="true"></i> Sample Output</b>
-              <p class="well light-blue lighten-5" [innerHTML]="currentProblem.problemDetail.sampleOutput"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col m6 s12">
+            <div *ngIf="currentProblem.problemDetail?.sampleInput">
+              <b><i class="fa fa-fw fa-terminal teal-text mb-3" aria-hidden="true"></i> Sample Input</b>
+              <p class="well light-blue lighten-5" [innerHTML]="currentProblem.problemDetail.sampleInput"></p>
               <br />
             </div>
           </div>
           <div class="col m6 s12">
-            
-          </div>
-          <div class="col m6 s12">
-            
+            <div *ngIf="currentProblem.problemDetail?.sampleOutput">
+              <b><i class="fa fa-fw fa-terminal teal-text mb-3" aria-hidden="true"></i> Sample Output</b>
+              <p class="well light-blue lighten-5" [innerHTML]="currentProblem.problemDetail.sampleOutput"></p>
+              <br />
+            </div>
           </div>
         </div>
-        
-        
       </div>
     </div>
     <div class="card-tabs">
