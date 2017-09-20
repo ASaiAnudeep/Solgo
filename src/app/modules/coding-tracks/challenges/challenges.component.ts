@@ -12,7 +12,7 @@ import { CodingTrack, Problem, CodingChallenge } from '../../../models/problem.i
 export class ChallengesComponent implements OnInit {
   trackID: string;
   currentTrack: CodingTrack;
-  currentChallenge: CodingChallenge = new CodingChallenge();
+  currentChallenge: CodingChallenge;
   challenges: string[];
   currentProblems: Problem[] = new Array();
   challengeProblemsMap: any = new Object();
@@ -41,6 +41,7 @@ export class ChallengesComponent implements OnInit {
           });
       });
     } else {
+      this.currentChallenge.title = name;
       this.currentProblems = this.challengeProblemsMap[name];
     }
   }

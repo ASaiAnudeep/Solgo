@@ -28,6 +28,10 @@ pre {
     width: auto;
 }
 
+div.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 /* bootstrap */
 .well {
     min-height: 20px;
@@ -44,3 +48,42 @@ pre {
 .mb-3 {
     margin-bottom: 1rem !important;
 }
+
+
+.breadcrumb-b {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    /* background-color: #eceeef; */
+    border-radius: 0.25rem;
+  }
+  
+  .breadcrumb-b::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+  
+  .breadcrumb-b-item {
+    float: left;
+  }
+  
+  .breadcrumb-b-item + .breadcrumb-b-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    color: #636c72;
+    content: "/";
+  }
+  
+  .breadcrumb-b-item + .breadcrumb-b-item:hover::before {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb-b-item + .breadcrumb-b-item:hover::before {
+    text-decoration: none;
+  }
+  
+  .breadcrumb-b-item.active {
+    color: #636c72;
+  }

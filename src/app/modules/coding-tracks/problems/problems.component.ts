@@ -23,10 +23,12 @@ export class ProblemsComponent implements OnInit, AfterViewChecked {
   codeCSharp: string;
   codePython: string;
   codeUpdated: number;
+  isCodeDownloaded: boolean;
  
 
   constructor(private ar: ActivatedRoute, private fire: FireService, private web: WebService) {
     this.codeUpdated = 0;
+    this.isCodeDownloaded = false;
    }
 
   ngOnInit() {
@@ -43,11 +45,25 @@ export class ProblemsComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    if(this.codeUpdated < 1000) {
-      PR.prettyPrint();
-      app.initializeTabs();   
-      this.codeUpdated = this.codeUpdated + 1;
+    if (this.hasDownloaded()) {
+      if(this.codeUpdated < 10) {
+        this.isCodeDownloaded = true;
+        PR.prettyPrint();
+        app.initializeTabs();   
+        this.codeUpdated = this.codeUpdated + 1;
+      }
     }
-   } 
+   }
+   
+   is(code: string): boolean {
+     return (code !== undefined)
+   }
+
+   hasDownloaded(): boolean {
+     if (this.isCodeDownloaded) {
+       return true;
+     }
+    return (this.is(this.codeC) && this.is(this.codeCPP) && this.is(this.codeJava) && this.is(this.codeCSharp) && this.is(this.codePython));
+   }
 
 }
