@@ -5,13 +5,13 @@
     <li class="breadcrumb-b-item active">{{currentChallenge?.title}}</li>
   </ol>
   <div class="row">
-    <div class="col m4 s12" *ngIf="challenges">
+    <div class="col m4 s12" *ngIf="trackChallenges">
       <ul class="collection with-header">
         <li class="collection-header  deep-purple-text">
           <h5><i class="fa fa-fw fa-cubes" aria-hidden="true"></i> Challenges</h5>
         </li>
-        <li *ngFor="let challenge of challenges">
-          <a class="collection-item black-text" style="cursor:pointer" (click)="showProblems(challenge)"><i class="fa fa-fw fa-cube" aria-hidden="true"></i> {{challenge}}</a>
+        <li *ngFor="let challenge of trackChallenges; let i = index">
+          <a class="collection-item black-text" [ngClass]="{'active-pink': challenge?.title == currentChallenge?.title}"style="cursor:pointer" (click)="showChallengeProblems(i)"><i class="fa fa-fw fa-cube" aria-hidden="true"></i> {{challenge?.title}}</a>
         </li>
       </ul>
     </div>

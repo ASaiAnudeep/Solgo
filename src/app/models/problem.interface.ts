@@ -27,5 +27,6 @@ export interface Solution {
 
 export class CodingChallenge {
     title: string;
-    problems: string;
+    problemNumbers: string;
+    problems: Problem[];
 }

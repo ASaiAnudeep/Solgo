@@ -1,0 +1,4 @@
+void printASCII(char c, int n) {
+    cout << (int)c << endl;
+    cout << (char)n;
+}

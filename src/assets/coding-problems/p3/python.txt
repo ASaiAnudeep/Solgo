@@ -1,0 +1,3 @@
+def printASCII(c, n):
+    print(ord(c))
+    print(chr(n))

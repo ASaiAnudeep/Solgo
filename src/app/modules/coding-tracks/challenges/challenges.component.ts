@@ -10,40 +10,43 @@ import { CodingTrack, Problem, CodingChallenge } from '../../../models/problem.i
   styleUrls: ['./challenges.component.css']
 })
 export class ChallengesComponent implements OnInit {
-  trackID: string;
   currentTrack: CodingTrack;
   currentChallenge: CodingChallenge;
-  challenges: string[];
+  trackChallenges: CodingChallenge[] = new Array();
   currentProblems: Problem[] = new Array();
-  challengeProblemsMap: any = new Object();
 
   constructor(private ar: ActivatedRoute, private fire: FireService) {
   }
 
   ngOnInit() {
     this.ar.params.subscribe(res => {
-      this.trackID = res['id'];
-      this.fire.getCodingTrack(this.trackID).then(track => {
+      this.fire.getCodingTrack(res['id']).then(track => {
         this.currentTrack = track;
-        this.challenges = this.currentTrack.challenges.split(';');
+        this.currentTrack.challenges.split(';').forEach(challenge => {
+          this.fire.getCodingChallenge(challenge).then(challenge => {
+            this.trackChallenges.push(challenge);
+            if (this.trackChallenges.length === 1) {
+              this.showChallengeProblems(0);
+            }
+          });
+        });
       });
     });
   }
 
-  showProblems(name: string): void {
-    if(this.challengeProblemsMap[name] === undefined) {
-      this.fire.getCodingChallenge(name).then(challenge => {
-        this.currentChallenge = challenge;
-        this.fire.getProblems((this.currentChallenge.problems + '').split(';')).then(
-          problems => {
-            this.currentProblems = problems;
-            this.challengeProblemsMap[name] = problems;
-          });
-      });
+  showChallengeProblems(i: number): void {
+    if (this.trackChallenges[i].problems === undefined) {
+      console.log('if');
+      this.fire.getProblems((this.trackChallenges[i].problemNumbers + '').split(';')).then(
+        problems => {
+          this.trackChallenges[i].problems = problems;
+          this.currentProblems = problems;
+        }
+      );
     } else {
-      this.currentChallenge.title = name;
-      this.currentProblems = this.challengeProblemsMap[name];
+      console.log('else');
+      this.currentProblems = this.trackChallenges[i].problems;
     }
+    this.currentChallenge = this.trackChallenges[i];
   }
-
 }

@@ -1,0 +1,4 @@
+void printASCII(char c, int n) {
+    System.Console.WriteLine((int)c);
+    System.Console.WriteLine((char)98);
+}

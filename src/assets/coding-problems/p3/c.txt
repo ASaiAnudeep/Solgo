@@ -1,0 +1,4 @@
+void printASCII(char c, int n) {
+    printf("%d\n", c);
+    printf("%c", n);
+}

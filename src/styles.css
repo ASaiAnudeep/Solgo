@@ -32,6 +32,11 @@ div.card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.active-pink {
+    color: #e91e63 !important;
+    font-weight: bold !important;
+}
+
 /* bootstrap */
 .well {
     min-height: 20px;

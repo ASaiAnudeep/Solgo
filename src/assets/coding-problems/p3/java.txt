@@ -1,0 +1,4 @@
+void printASCII(char c, int n) {
+    System.out.println((int)c);
+    System.out.println((char)n);
+}
