@@ -1,0 +1,6 @@
+def anagram(a, b):
+    for ch in a:
+        if ch in b:
+            a = a.replace(ch, "", 1)
+            b = b.replace(ch, "", 1)
+    print(len(a) + len(b))

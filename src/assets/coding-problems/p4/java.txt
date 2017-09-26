@@ -1,0 +1,15 @@
+void anagram(String a, String b) {
+    int aCount[], bCount[], i, delNum = 0;
+    aCount = new int[26];
+    bCount = new int[26];
+    for(i = 0; i < a.length(); i++) {
+        (aCount[a.charAt(i) - 'a'])++;
+    }
+    for(i = 0; i < b.length(); i++) {
+        (bCount[b.charAt(i) - 'a'])++;
+    }
+    for(i = 0; i < 26; i++) {
+        delNum += Math.abs(aCount[i] - bCount[i]);
+    }
+    System.out.println(delNum);
+}

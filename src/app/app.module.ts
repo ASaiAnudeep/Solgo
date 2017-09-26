@@ -3,8 +3,9 @@ import { NgModule, enableProdMode } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import {CodingTracksModule} from './modules/coding-tracks/coding-tracks.module';
-import {HomeModule} from './modules/home/home.module';
+import { CodingTracksModule } from './modules/coding-tracks/coding-tracks.module';
+import { HomeModule } from './modules/home/home.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 import { AppComponents, AppRoutingModule } from './app-routing.module';
 
@@ -16,6 +17,7 @@ import { FireService } from './services/firebase.service';
 import { WebService } from './services/web.service';
 
 import { environment } from '../environments/environment';
+
 
 
 
@@ -34,6 +36,7 @@ enableProdMode();
     AngularFireDatabaseModule,
     HomeModule,
     CodingTracksModule,
+    SharedModule,
     AppRoutingModule,
   ],
   providers: [FireService, WebService],

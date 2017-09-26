@@ -1,0 +1,21 @@
+void anagram(string a, string b) {
+    int i, delNum = 0;
+    var aCount = new Dictionary<char, int>();
+    var bCount = new Dictionary<char, int>();
+    for (i = 0; i < 26; i++) {
+        char ch = (char)('a' + i);
+        aCount.Add(ch, 0);
+        bCount.Add(ch, 0);
+    }
+    foreach (var ch in a) {
+        aCount[ch] += 1;
+    }
+    foreach (var ch in b) {
+        bCount[ch] += 1;
+    }
+    for (i = 0; i < 26; i++) {
+        char ch = (char)('a' + i);
+        delNum += Math.Abs(aCount[ch] - bCount[ch]);
+    }
+    System.Console.WriteLine(delNum);
+}

@@ -11,6 +11,7 @@
         <p class="tab-indent" [innerHTML]="currentProblem.question"></p>
         <br />
       </div>
+      <app-page-loader *ngIf="!(currentProblem)?.question"></app-page-loader>
       <div *ngIf="currentProblem?.problemDetail">
         <div *ngIf="currentProblem.problemDetail?.description">
           <b><i class="fa fa-fw fa-info-circle light-blue-text" aria-hidden="true"></i> Description</b>

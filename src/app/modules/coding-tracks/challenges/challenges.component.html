@@ -1,7 +1,7 @@
 <div class="container">
   <ol class="breadcrumb-b deep-purple lighten-5">
     <li class="breadcrumb-b-item"><a [routerLink]="['/coding-tracks']">Coding Tracks</a> </li>
-    <li *ngIf="currentTrack?.$key" class="breadcrumb-b-item"><a [routerLink]="['/coding-tracks/challenges/', currentTrack?.$key]">{{currentTrack?.title}}</a> </li>
+    <li *ngIf="currentTrack?.id" class="breadcrumb-b-item"><a [routerLink]="['/coding-tracks/challenges/', currentTrack?.id]">{{currentTrack?.title}}</a> </li>
     <li class="breadcrumb-b-item active">{{currentChallenge?.title}}</li>
   </ol>
   <div class="row">
@@ -30,4 +30,5 @@
       </div>
     </div>
   </div>
+  <app-page-loader *ngIf="!currentChallenge"></app-page-loader>
 </div>

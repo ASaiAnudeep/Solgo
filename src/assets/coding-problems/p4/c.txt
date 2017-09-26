@@ -1,0 +1,14 @@
+void anagram(char[] a, char[] b) {
+    int aCount[26] = {0}, bCount[26] = {0};
+    int delNum = 0;
+    for(int i = 0 ; i < strlen(a) ; i++){
+        (aCount[a[i] - 'a'])++;
+    }
+    for(int i = 0 ; i < strlen(b) ; i++){
+        (bCount[a[i] - 'a'])++;
+    }
+    for(int i = 0 ; i < 26 ; i++){
+        delNum += abs(aCount[i] - bCount[i]);
+    }
+    printf("%d\n",delNum);
+}

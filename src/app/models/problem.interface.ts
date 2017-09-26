@@ -26,6 +26,7 @@ export interface Solution {
 }
 
 export class CodingChallenge {
+    id: string;
     title: string;
     problemNumbers: string;
     problems: Problem[];
